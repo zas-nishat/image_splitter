@@ -47,5 +47,10 @@ You can share the `.exe` file with anyone — no Python or installation required
 1. Install Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 2. Install required library:
 
-```bash
+
 pip install pillow
+
+
+**Author:** zas-nishat  
+**Version:** 1.0.0  
+**License:** Free for personal and commercial use
