@@ -1,75 +1,51 @@
-# image_splitter
+# 🖼️ Image Splitter (Batch Desktop EXE Tool)
 
-# Batch Image Splitter
-This is a simple Python desktop application to split all images in a selected folder into two vertical parts (left and right). The split images are saved automatically inside a subfolder named split_output within the selected folder.
+**Image Splitter** is a simple desktop application (Python-based, `.exe` ready) that splits all images in a selected folder into two vertical halves — left and right.  
+You can share the `.exe` file with anyone — no Python or installation required.
 
-# Features
-Select a folder containing images.
+---
 
-Automatically split each image vertically into two parts: left and right.
+## 💾 EXE Version (No Python Needed)
 
-# Output images are saved with sequential page numbering:
+✅ If you're using the **`.exe` version** (`batch_image_splitter.exe`):
 
-page1_left.jpg, page1_right.jpg
+1. Just **double-click the `.exe` file**.
+2. Select the folder containing your images.
+3. The app will create a folder called `split_output` inside that folder.
+4. All split images (`page1_left.jpg`, `page1_right.jpg`, ...) will be saved there.
+5. No installation needed, just run and use!
 
-page2_left.jpg, page2_right.jpg
+---
 
-and so on...
+## 🛠️ Features
 
-Automatically creates a split_output folder inside the selected folder and saves all output images there.
+- Select a folder containing multiple images.
+- Automatically splits each image **vertically into left and right halves**.
+- Saves output with sequential page names:
+  - `page1_left.jpg`, `page1_right.jpg`
+  - `page2_left.jpg`, `page2_right.jpg`
+  - ...
+- Automatically creates `split_output` folder inside the selected folder.
+- Supports: `.jpg`, `.jpeg`, `.png`, `.bmp`
+- Maintains **natural order sorting** (`image2.jpg` comes before `image10.jpg`).
+- Converts output to **monochrome (black & white)**.
 
-# Supports image formats: .jpg, .jpeg, .png, .bmp.
+---
 
-Sorts input images in natural order, so files like image2.jpg come before image10.jpg.
+## 💻 Requirements (for Python version)
 
-# Requirements
-Python 3.x installed (tested with Python 3.7+)
+> Skip this if you're using the `.exe` file
 
-Pillow library for image processing
+- Python 3.x (tested with Python 3.7+)
+- Pillow (Python Imaging Library)
+- Tkinter (comes with Python by default)
 
-Tkinter library for GUI (usually comes bundled with Python)
+---
 
-# Installation
-Install Python:
-Download and install Python from python.org.
+## 🧪 Installation (Python users only)
 
-# Install Pillow library:
-Open a terminal or command prompt and run:
+1. Install Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+2. Install required library:
 
+```bash
 pip install pillow
-# How to Use
-Save the script multiple_image_splitter.py in a folder on your computer for multiple images.
-
-Open a terminal or command prompt and navigate to the folder containing the script.
-
-# Run the script with:
-
-python multiple_image_splitter.py
-# A window titled "Image Splitter (Auto Save)" will open.
-
-Click the Select Folder and Split Images button.
-
-Choose the folder containing the images you want to split.
-
-The program will create a split_output folder inside the selected folder and save the split images there.
-
-After processing, a popup message will show the total number of images processed and the output folder path.
-
-# Output Files
-For each image in the input folder, two images are created:
-
-pageN_left.jpg — left half of the Nth image
-
-pageN_right.jpg — right half of the Nth image
-
-N corresponds to the image's order in the sorted list.
-
-# Troubleshooting
-Make sure Python and Pillow are properly installed.
-
-If the program doesn’t open a window, verify Tkinter is installed and working.
-
-Supported image formats: .jpg, .jpeg, .png, .bmp only.
-
-Large batches of images may take some time to process.
-
