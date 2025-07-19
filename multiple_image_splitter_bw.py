@@ -14,22 +14,22 @@ def split_image_with_page_number(path, save_folder, page_num):
         left_box = (0, 0, width // 2, height)
         right_box = (width // 2, 0, width, height)
         
-        left_part = img.crop(left_box)
-        right_part = img.crop(right_box)
+        left_part = img.crop(left_box).convert("1", dither=Image.NONE) 
+        right_part = img.crop(right_box).convert("1", dither=Image.NONE) 
         
         left_part.save(os.path.join(save_folder, f"page{page_num}_left.jpg"))
         right_part.save(os.path.join(save_folder, f"page{page_num}_right.jpg"))
     except Exception as e:
         print(f"Error processing {path}: {e}")
 
-def select_folder_and_split_serial():
+def select_folder_and_split_serial_auto_save():
     folder_path = filedialog.askdirectory(title="Select folder with images to split")
     if not folder_path:
         return
     
-    save_folder = filedialog.askdirectory(title="Select folder to save split images")
-    if not save_folder:
-        return
+    # Auto create subfolder named 'split_output' inside the selected folder
+    save_folder = os.path.join(folder_path, "split_output")
+    os.makedirs(save_folder, exist_ok=True)
     
     supported_ext = ('.jpg', '.jpeg', '.png', '.bmp')
     files = [f for f in os.listdir(folder_path) if f.lower().endswith(supported_ext)]
@@ -46,17 +46,17 @@ def select_folder_and_split_serial():
         split_image_with_page_number(img_path, save_folder, i)
         print(f"Processed {i} / {total}: {img_path}")
     
-    messagebox.showinfo("Done", f"Split {total} images successfully!")
+    messagebox.showinfo("Done", f"Split {total} images successfully!\nSaved in:\n{save_folder}")
 
 def main():
     root = Tk()
-    root.title("Batch Image Splitter (Page-wise Left/Right)")
+    root.title("Batch Image Splitter (Auto Save)")
     root.geometry("450x150")
 
-    label = Label(root, text="Split images into 2 vertical parts, name as pageN_left/right", pady=10)
+    label = Label(root, text="Split images and auto-save in 'split_output' folder", pady=10)
     label.pack()
 
-    btn_folder = Button(root, text="Select Folder and Split Images", command=select_folder_and_split_serial)
+    btn_folder = Button(root, text="Select Folder and Split Images", command=select_folder_and_split_serial_auto_save)
     btn_folder.pack(pady=20)
 
     root.mainloop()

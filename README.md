@@ -38,14 +38,14 @@ Open a terminal or command prompt and run:
 
 pip install pillow
 # How to Use
-Save the script batch_image_splitter.py in a folder on your computer.
+Save the script multiple_image_splitter.py in a folder on your computer for multiple images.
 
 Open a terminal or command prompt and navigate to the folder containing the script.
 
 # Run the script with:
 
-python batch_image_splitter.py
-# A window titled "Batch Image Splitter (Auto Save)" will open.
+python multiple_image_splitter.py
+# A window titled "Image Splitter (Auto Save)" will open.
 
 Click the Select Folder and Split Images button.
 
